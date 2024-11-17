@@ -7,7 +7,7 @@ A React Native module that provides voice-to-text capabilities using Android's S
 To install the package, run:
 
 ```bash
-npm install react-native-voice-to-text
+npm install react-native-voice-to-text-custom
 ```
 
 ## Setup (Android Only)
