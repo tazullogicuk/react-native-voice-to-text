@@ -1,5 +1,5 @@
 {
-  "name": "react-native-voice-to-text",
+  "name": "react-native-voice-to-text-custom",
   "version": "0.1.0",
   "description": "React native package for converting voice to text.",
   "source": "./src/index.tsx",
