@@ -1,33 +1,68 @@
-# react-native-voice-to-text
+# React Native Voice to Text
 
-React native package for converting voice to text.
+A React Native module that provides voice-to-text capabilities using Android's Speech Recognizer.
 
 ## Installation
 
-```sh
+To install the package, run:
+
+```bash
 npm install react-native-voice-to-text
+```
+
+## Setup (Android Only)
+
+Make sure you have set up permissions for Android. Add the following permission to your `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
 
 ## Usage
 
+```javascript
+import VoiceRecognition from 'react-native-voice-to-text';
 
-```js
-import { multiply } from 'react-native-voice-to-text';
+// Request microphone permission first
+VoiceRecognition.requestMicrophonePermission().then(() => {
+  
+// Start voice recognition
+  VoiceRecognition.startRecognition('en-US')
+    .then(() => console.log('Recognition started'))
+    .catch((error) => console.error('Error:', error));
+});
 
-// ...
-
-const result = await multiply(3, 7);
+// Stop recognition when needed
+VoiceRecognition.stopRecognition().then(() => {
+  console.log('Recognition stopped');
+});
 ```
 
+## API
+
+### `requestMicrophonePermission()`
+Requests microphone permission from the user.
+
+**Returns**: `Promise<string>`
+
+### `startRecognition(locale: string)`
+Starts voice recognition with the given locale.
+
+**Arguments**:
+- `locale` (string): The language code (e.g., 'en-US') to be used for voice recognition.
+
+**Returns**: `Promise<void>`
+
+### `stopRecognition()`
+Stops the voice recognition process.
+
+**Returns**: `Promise<void>`
 
 ## Contributing
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+Contributions are welcome! Please feel free to open issues or submit pull requests.
 
 ## License
 
-MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
+# react-native-voice-to-text
